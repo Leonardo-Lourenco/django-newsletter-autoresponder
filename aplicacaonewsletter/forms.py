@@ -4,9 +4,9 @@ from django import  forms
 from .models import Newsletter, NewslettersUser
 
 class NewsletterUserSignUpForm(forms.ModelForm):
-    class meta:
+    class Meta:
         model = NewslettersUser
-        filter = ['email']
+        fields = ['email']
 
 
 class NewsletterCreationForm(forms.ModelForm):

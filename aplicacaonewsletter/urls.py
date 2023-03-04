@@ -6,6 +6,6 @@ from .views import newsletter_signup, newsletter_unsubscribe
 app_name="aplicacaonewsletter"
 
 urlpatterns = [
-    path('sigup/',newsletter_signup,  name="sigup" ),
+    path('sigup/',newsletter_signup,  name="sigup"),
     path('unsubscribe/',newsletter_unsubscribe,  name="unsubscribe" ),
 ]

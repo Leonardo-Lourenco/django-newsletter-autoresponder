@@ -15,7 +15,7 @@ def newsletter_signup(request):
         instance=form.save(commit=False)
 
         if NewslettersUser.objects.filter(email=instance.email).exists():
-            messages.Warning(request, 'This email exists!!!')
+            messages.warning(request, 'This email exists!!!')
 
         else: 
 
@@ -27,7 +27,7 @@ def newsletter_signup(request):
             from_email= settings.EMAIL_HOST_USER  # isso aqui está configurado lá no settings.py
             to_email= [instance.email]
 
-            html_template='newsletter/templates/newsletters/welcome.html'
+            html_template='newsletters/emails_templates/welcome.html'
             html_message= render_to_string(html_template)
             message=EmailMessage(subject, html_message, from_email, to_email)
             message.content_subtype='html'
@@ -51,7 +51,7 @@ def newsletter_unsubscribe(request):
 
         else:
             print('Email not found')
-            messages.Warning(request, 'Email not found!!')            
+            messages.warning(request, 'Email not found!!')            
     
     context= {
         'form':form,
