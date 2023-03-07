@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Configuração para disparar os email automáticos:
+EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'
+
 
 # Application definition
 

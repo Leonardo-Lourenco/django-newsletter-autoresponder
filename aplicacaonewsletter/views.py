@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.core.checks import messages
+from django.contrib import messages
 from aplicacaonewsletter.models import NewslettersUser
 from .forms import NewsletterUserSignUpForm
 from django.conf import settings
