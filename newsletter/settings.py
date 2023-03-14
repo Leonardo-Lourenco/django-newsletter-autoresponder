@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newsletter',
-    'aplicacaonewsletter'
+    'aplicacaonewsletter',
+    'dashboard',
 ]
 
 EMAIL_HOST_USER= 'lnd-ghostword@hotmail.com'
