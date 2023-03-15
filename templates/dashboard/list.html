@@ -112,7 +112,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        News Coffee Tag
                     </div>
                 </nav>
             </div>
@@ -124,39 +124,86 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Static Navigation</h1>
+                        <h1 class="mt-4">Lista de Emails Cadastrados</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Static Navigation</li>
+                            <li class="breadcrumb-item active">Emails Cadastrados</li>
+
                         </ol>
+
+                       
+
                         <div class="card mb-4">
                             <div class="card-body">
-                                <p class="mb-0">
-                                    This page is an example of using static navigation. By removing the
-                                    <code>.sb-nav-fixed</code>
-                                    class from the
-                                    <code>body</code>
-                                    , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example.
-                                </p>
+
+                                <button type="button" class="btn btn-success">Create new Email</button>
+
                             </div>
                         </div>
-                        <div style="height: 100vh"></div>
-                        <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div>
+                        
+
+                        <div class="card mb-4">
+                            <div class="card-body">
+
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-table me-1"></i>
+                                        Emails cadastrados:
+                                    </div>
+
+
+
+
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                
+                                                    <th>Name</th>
+                                                    <th>Subject</th>
+                                                    <th>Email</th>
+                                                    <th>Date Created</th>
+                                                    <th>Status</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                          
+
+
+                                            <tbody>
+                                            
+                                                {% for newsletter in newsletters %}
+                                                               
+                                                    <tr>
+                                                        <td>{{ newsletter.name }}</td>
+                                                        <td>{{ newsletter.subject }}</td>
+                                                        <td>{{ newsletter.email }}</td>
+                                                        <td>27/10/1990</td>
+                                                        <td>Status</td>
+                                                        
+                                                    </tr>
+
+
+                                                {% endfor %}
+
+                                            </tbody>
+
+
+
+
+
+                                        </table>
+                                    </div>
+        
+
+                                </div>      
+                            </div>    
+
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+              
 
 
 
