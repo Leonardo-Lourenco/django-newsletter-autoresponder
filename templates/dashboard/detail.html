@@ -124,93 +124,54 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Lista de Emails Enviados</h1>
+                        <h1 class="mt-4">Editando Email Enviado</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Emails enviados</li>
+                            <li class="breadcrumb-item active">Editando Email enviado:</li>
 
                         </ol>
 
-                       
-                         <!-- Botão que vai para a página CREATED.HTML -->
+                      
+                        
                         <div class="card mb-4">
                             <div class="card-body">
+                                
+                                <a href="{% url 'dashboard:update' newsletter.id  %}" type="submit" class="btn btn-success">Editar</a>
 
-                                <a href="{% url 'dashboard:created' %}" type="button" class="btn btn-success">Create new Newsletter</a>
+                                <a href="{% url 'dashboard:created' %}" type="button" class="btn btn-danger">Deletar</a>
+
+
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                
+                               <p> {{ newsletter.name }} </p>
 
                             </div>
                         </div>
-                        
 
                         <div class="card mb-4">
                             <div class="card-body">
+                                
+                               <p> {{ newsletter.subject }} </p>
+                               
+                            </div>
+                        </div>
 
-
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <i class="fas fa-table me-1"></i>
-                                        Emails enviados:
-                                    </div>
-
-
-
-
-                                    <div class="card-body">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                
-                                                    
-                                                    <th>Name</th>
-                                                    <th>Subject</th>
-                                                    <th>Email</th>
-                                                    <th>Date Created</th>
-                                                    <th>Status</th>
-                                                   
-                                                </tr>
-                                            </thead>
-                                          
-
-
-                                            <tbody>
-                                            
-                                                {% for newsletter in newsletters %}
-                                                               
-                                                    <tr>
-                                                        
-
-                                                        <td>
-                                                            
-                                                        <a href="{% url 'dashboard:detail' newsletter.id %}">
-                                                            
-                                                            {{ newsletter.name }}</td> 
-
-                                                        </a>                                                        
-                                                        <td>{{ newsletter.subject }}</td>
-                                                        <td>{{ newsletter.email }}</td>
-                                                        <td>{{ newsletter.created }}</td>
-                                                        <td>{{ newsletter.status }}</td>
-                                                        
-                                                    </tr>
-
-
-                                                {% endfor %}
-
-                                            </tbody>
-
-
-
-
-
-                                        </table>
-                                    </div>
-        
-
-                                </div>      
-                            </div>    
-
-                    </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                
+                               <p> {{ newsletter.body }} </p>
+                               
+                            </div>
+                        </div>
+                        
+                    </div>    
+                        
                 </main>
               
 
