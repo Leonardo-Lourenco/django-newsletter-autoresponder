@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView, UpdateView, View
 from aplicacaonewsletter.models import Newsletter
 from aplicacaonewsletter.forms import NewsletterCreationForm
 from django.conf import settings
@@ -78,21 +78,28 @@ class NewsletterDetailView(View):
             'newsletter': newsletter
         }
 
-        return render(request, 'dashboard/detail.html')
+        return render(request, 'dashboard/detail.html', context)
     
 
 
 #Botão do Painel EDITAR um email enviado
-class NewsletterUpdateView(View):
-    def get(self, request, *args, **kwargs):
+class NewsletterUpdateView(UpdateView):
+    
+    model=Newsletter
+    form_class=NewsletterCreationForm
+    template_name='dashboard/update.html'
+    success_url='/dashboard/detail/2/'
 
-        form=NewsletterCreationForm()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            'view_type':'update'
+        })
 
-        context= {
-             'form':form
+        return context
 
-        }      
-        return render(request, 'dashboard/update.html', context)
+
+
 
     # enviando o emails para a pessoa
     def post(self,request,pk, *args, **kwargs):
@@ -105,6 +112,7 @@ class NewsletterUpdateView(View):
 
             if form.is_valid():
                 instance=form.save()
+
                 newsletter=Newsletter.objects.get(id=instance.id)
 
                 if newsletter.status=="Published":
@@ -123,8 +131,6 @@ class NewsletterUpdateView(View):
         else:
 
             form=NewsletterCreationForm(instance=newsletter)
-
-
 
         context= {
              'form':form
