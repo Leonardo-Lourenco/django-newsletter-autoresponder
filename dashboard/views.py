@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView, UpdateView, View
+from django.views.generic import TemplateView, UpdateView, View, DeleteView
 from aplicacaonewsletter.models import Newsletter
 from aplicacaonewsletter.forms import NewsletterCreationForm
 from django.conf import settings
@@ -137,3 +137,11 @@ class NewsletterUpdateView(UpdateView):
 
         } 
         return render(request, 'dashboard/update.html', context)
+
+
+#Botão do Painel DELETAR um email enviado
+class NewsletterDeleteView(DeleteView):
+
+    model=Newsletter
+    template_name='dashboard/delete.html'
+    success_url='/dashboard/list/'

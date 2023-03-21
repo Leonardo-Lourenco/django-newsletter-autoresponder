@@ -8,6 +8,7 @@ from django.core.mail import send_mail, EmailMessage
 
 # Create your views here.
 
+
 def newsletter_signup(request):
     form = NewsletterUserSignUpForm(request.POST or None)
 
